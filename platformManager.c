@@ -2,161 +2,298 @@
 
 
 #if defined(PM_LINUX)
+
 pm_key_map pm_platform_translate_keysym(const KeySym *key_syms, pm_int32 width) {
     if (width > 1) {
         switch (key_syms[1]) {
-            case XK_KP_0:           return PM_KEYCODE_NUMPAD_0;
-            case XK_KP_1:           return PM_KEYCODE_NUMPAD_1;
-            case XK_KP_2:           return PM_KEYCODE_NUMPAD_2;
-            case XK_KP_3:           return PM_KEYCODE_NUMPAD_3;
-            case XK_KP_4:           return PM_KEYCODE_NUMPAD_4;
-            case XK_KP_5:           return PM_KEYCODE_NUMPAD_5;
-            case XK_KP_6:           return PM_KEYCODE_NUMPAD_6;
-            case XK_KP_7:           return PM_KEYCODE_NUMPAD_7;
-            case XK_KP_8:           return PM_KEYCODE_NUMPAD_8;
-            case XK_KP_9:           return PM_KEYCODE_NUMPAD_9;
+            case XK_KP_0:
+                return PM_KEYCODE_NUMPAD_0;
+            case XK_KP_1:
+                return PM_KEYCODE_NUMPAD_1;
+            case XK_KP_2:
+                return PM_KEYCODE_NUMPAD_2;
+            case XK_KP_3:
+                return PM_KEYCODE_NUMPAD_3;
+            case XK_KP_4:
+                return PM_KEYCODE_NUMPAD_4;
+            case XK_KP_5:
+                return PM_KEYCODE_NUMPAD_5;
+            case XK_KP_6:
+                return PM_KEYCODE_NUMPAD_6;
+            case XK_KP_7:
+                return PM_KEYCODE_NUMPAD_7;
+            case XK_KP_8:
+                return PM_KEYCODE_NUMPAD_8;
+            case XK_KP_9:
+                return PM_KEYCODE_NUMPAD_9;
             case XK_KP_Separator:
-            case XK_KP_Decimal:     return PM_KEYCODE_NUMPAD_DECIMAL;
-            case XK_KP_Equal:       return PM_KEYCODE_NUMPAD_EQUAL;
-            case XK_KP_Enter:       return PM_KEYCODE_NUMPAD_ENTER;
-            default:                break;
+            case XK_KP_Decimal:
+                return PM_KEYCODE_NUMPAD_DECIMAL;
+            case XK_KP_Equal:
+                return PM_KEYCODE_NUMPAD_EQUAL;
+            case XK_KP_Enter:
+                return PM_KEYCODE_NUMPAD_ENTER;
+            default:
+                break;
         };
     };
 
     switch (key_syms[0]) {
-        case XK_Escape:         return PM_KEYCODE_ESCAPE;
-        case XK_Tab:            return PM_KEYCODE_TAB;
-        case XK_Shift_L:        return PM_KEYCODE_LEFT_SHIFT;
-        case XK_Shift_R:        return PM_KEYCODE_RIGHT_SHIFT;
-        case XK_Control_L:      return PM_KEYCODE_LEFT_CONTROL;
-        case XK_Control_R:      return PM_KEYCODE_RIGHT_CONTROL;
-        case XK_Alt_L:          return PM_KEYCODE_LEFT_ALT;
-        case XK_Alt_R:          return PM_KEYCODE_RIGHT_ALT;
-        case XK_Super_L:        return PM_KEYCODE_LEFT_META;
-        case XK_Super_R:        return PM_KEYCODE_RIGHT_META;
-        case XK_Menu:           return PM_KEYCODE_MENU;
-        case XK_Num_Lock:       return PM_KEYCODE_NUMPAD_NUM;
-        case XK_Caps_Lock:      return PM_KEYCODE_CAPS_LOCK;
-        case XK_Print:          return PM_KEYCODE_PRINT_SCREEN;
-        case XK_Scroll_Lock:    return PM_KEYCODE_SCROLL_LOCK;
-        case XK_Pause:          return PM_KEYCODE_PAUSE;
-        case XK_Delete:         return PM_KEYCODE_DELETE;
-        case XK_BackSpace:      return PM_KEYCODE_BACKSPACE;
-        case XK_Return:         return PM_KEYCODE_ENTER;
-        case XK_Home:           return PM_KEYCODE_HOME;
-        case XK_End:            return PM_KEYCODE_END;
-        case XK_Page_Up:        return PM_KEYCODE_PAGE_UP;
-        case XK_Page_Down:      return PM_KEYCODE_PAGE_DOWN;
-        case XK_Insert:         return PM_KEYCODE_INSERT;
-        case XK_Left:           return PM_KEYCODE_LEFT_ARROW;
-        case XK_Right:          return PM_KEYCODE_RIGHT_ARROW;
-        case XK_Down:           return PM_KEYCODE_DOWN_ARROW;
-        case XK_Up:             return PM_KEYCODE_UP_ARROW;
-        case XK_F1:             return PM_KEYCODE_F1;
-        case XK_F2:             return PM_KEYCODE_F2;
-        case XK_F3:             return PM_KEYCODE_F3;
-        case XK_F4:             return PM_KEYCODE_F4;
-        case XK_F5:             return PM_KEYCODE_F5;
-        case XK_F6:             return PM_KEYCODE_F6;
-        case XK_F7:             return PM_KEYCODE_F7;
-        case XK_F8:             return PM_KEYCODE_F8;
-        case XK_F9:             return PM_KEYCODE_F9;
-        case XK_F10:            return PM_KEYCODE_F10;
-        case XK_F11:            return PM_KEYCODE_F11;
-        case XK_F12:            return PM_KEYCODE_F12;
-        case XK_F13:            return PM_KEYCODE_F13;
-        case XK_F14:            return PM_KEYCODE_F14;
-        case XK_F15:            return PM_KEYCODE_F15;
-        case XK_F16:            return PM_KEYCODE_F16;
-        case XK_F17:            return PM_KEYCODE_F17;
-        case XK_F18:            return PM_KEYCODE_F18;
-        case XK_F19:            return PM_KEYCODE_F19;
-        case XK_F20:            return PM_KEYCODE_F20;
-        case XK_F21:            return PM_KEYCODE_F21;
-        case XK_F22:            return PM_KEYCODE_F22;
-        case XK_F23:            return PM_KEYCODE_F23;
-        case XK_F24:            return PM_KEYCODE_F24;
-        case XK_F25:            return PM_KEYCODE_F25;
-        case XK_KP_Divide:      return PM_KEYCODE_NUMPAD_DIVIDE;
-        case XK_KP_Multiply:    return PM_KEYCODE_NUMPAD_MULTIPLY;
-        case XK_KP_Subtract:    return PM_KEYCODE_NUMPAD_SUBTRACT;
-        case XK_KP_Add:         return PM_KEYCODE_NUMPAD_ADD;
-        case XK_KP_Insert:      return PM_KEYCODE_NUMPAD_0;
-        case XK_KP_End:         return PM_KEYCODE_NUMPAD_1;
-        case XK_KP_Down:        return PM_KEYCODE_NUMPAD_2;
-        case XK_KP_Page_Down:   return PM_KEYCODE_NUMPAD_3;
-        case XK_KP_Left:        return PM_KEYCODE_NUMPAD_4;
-        case XK_KP_Right:       return PM_KEYCODE_NUMPAD_6;
-        case XK_KP_Home:        return PM_KEYCODE_NUMPAD_7;
-        case XK_KP_Up:          return PM_KEYCODE_NUMPAD_8;
-        case XK_KP_Page_Up:     return PM_KEYCODE_NUMPAD_9;
-        case XK_KP_Delete:      return PM_KEYCODE_NUMPAD_DECIMAL;
-        case XK_KP_Equal:       return PM_KEYCODE_NUMPAD_EQUAL;
-        case XK_KP_Enter:       return PM_KEYCODE_NUMPAD_ENTER;
-        case XK_a:              return PM_KEYCODE_A;
-        case XK_b:              return PM_KEYCODE_B;
-        case XK_c:              return PM_KEYCODE_C;
-        case XK_d:              return PM_KEYCODE_D;
-        case XK_e:              return PM_KEYCODE_E;
-        case XK_f:              return PM_KEYCODE_F;
-        case XK_g:              return PM_KEYCODE_G;
-        case XK_h:              return PM_KEYCODE_H;
-        case XK_i:              return PM_KEYCODE_I;
-        case XK_j:              return PM_KEYCODE_J;
-        case XK_k:              return PM_KEYCODE_K;
-        case XK_l:              return PM_KEYCODE_L;
-        case XK_m:              return PM_KEYCODE_M;
-        case XK_n:              return PM_KEYCODE_N;
-        case XK_o:              return PM_KEYCODE_O;
-        case XK_p:              return PM_KEYCODE_P;
-        case XK_q:              return PM_KEYCODE_Q;
-        case XK_r:              return PM_KEYCODE_R;
-        case XK_s:              return PM_KEYCODE_S;
-        case XK_t:              return PM_KEYCODE_T;
-        case XK_u:              return PM_KEYCODE_U;
-        case XK_v:              return PM_KEYCODE_V;
-        case XK_w:              return PM_KEYCODE_W;
-        case XK_x:              return PM_KEYCODE_X;
-        case XK_y:              return PM_KEYCODE_Y;
-        case XK_z:              return PM_KEYCODE_Z;
-        case XK_1:              return PM_KEYCODE_1;
-        case XK_2:              return PM_KEYCODE_2;
-        case XK_3:              return PM_KEYCODE_3;
-        case XK_4:              return PM_KEYCODE_4;
-        case XK_5:              return PM_KEYCODE_5;
-        case XK_6:              return PM_KEYCODE_6;
-        case XK_7:              return PM_KEYCODE_7;
-        case XK_8:              return PM_KEYCODE_8;
-        case XK_9:              return PM_KEYCODE_9;
-        case XK_0:              return PM_KEYCODE_0;
-        case XK_space:          return PM_KEYCODE_SPACE;
-        case XK_minus:          return PM_KEYCODE_MINUS;
-        case XK_equal:          return PM_KEYCODE_EQUAL;
-        case XK_bracketleft:    return PM_KEYCODE_LEFT_SQUARE_BRACKET;
-        case XK_bracketright:   return PM_KEYCODE_RIGHT_SQUARE_BRACKET;
-        case XK_backslash:      return PM_KEYCODE_BACKSLASH;
-        case XK_semicolon:      return PM_KEYCODE_SEMICOLON;
-        case XK_apostrophe:     return PM_KEYCODE_APOSTROPHE;
-        case XK_grave:          return PM_KEYCODE_ACCENT_GRAVE;
-        case XK_comma:          return PM_KEYCODE_COMMA;
-        case XK_period:         return PM_KEYCODE_PERIOD;
-        case XK_slash:          return PM_KEYCODE_SLASH;
-        default:                return PM_KEYCODE_INVALID;
+        case XK_Escape:
+            return PM_KEYCODE_ESCAPE;
+        case XK_Tab:
+            return PM_KEYCODE_TAB;
+        case XK_Shift_L:
+            return PM_KEYCODE_LEFT_SHIFT;
+        case XK_Shift_R:
+            return PM_KEYCODE_RIGHT_SHIFT;
+        case XK_Control_L:
+            return PM_KEYCODE_LEFT_CONTROL;
+        case XK_Control_R:
+            return PM_KEYCODE_RIGHT_CONTROL;
+        case XK_Alt_L:
+            return PM_KEYCODE_LEFT_ALT;
+        case XK_Alt_R:
+            return PM_KEYCODE_RIGHT_ALT;
+        case XK_Super_L:
+            return PM_KEYCODE_LEFT_META;
+        case XK_Super_R:
+            return PM_KEYCODE_RIGHT_META;
+        case XK_Menu:
+            return PM_KEYCODE_MENU;
+        case XK_Num_Lock:
+            return PM_KEYCODE_NUMPAD_NUM;
+        case XK_Caps_Lock:
+            return PM_KEYCODE_CAPS_LOCK;
+        case XK_Print:
+            return PM_KEYCODE_PRINT_SCREEN;
+        case XK_Scroll_Lock:
+            return PM_KEYCODE_SCROLL_LOCK;
+        case XK_Pause:
+            return PM_KEYCODE_PAUSE;
+        case XK_Delete:
+            return PM_KEYCODE_DELETE;
+        case XK_BackSpace:
+            return PM_KEYCODE_BACKSPACE;
+        case XK_Return:
+            return PM_KEYCODE_ENTER;
+        case XK_Home:
+            return PM_KEYCODE_HOME;
+        case XK_End:
+            return PM_KEYCODE_END;
+        case XK_Page_Up:
+            return PM_KEYCODE_PAGE_UP;
+        case XK_Page_Down:
+            return PM_KEYCODE_PAGE_DOWN;
+        case XK_Insert:
+            return PM_KEYCODE_INSERT;
+        case XK_Left:
+            return PM_KEYCODE_LEFT_ARROW;
+        case XK_Right:
+            return PM_KEYCODE_RIGHT_ARROW;
+        case XK_Down:
+            return PM_KEYCODE_DOWN_ARROW;
+        case XK_Up:
+            return PM_KEYCODE_UP_ARROW;
+        case XK_F1:
+            return PM_KEYCODE_F1;
+        case XK_F2:
+            return PM_KEYCODE_F2;
+        case XK_F3:
+            return PM_KEYCODE_F3;
+        case XK_F4:
+            return PM_KEYCODE_F4;
+        case XK_F5:
+            return PM_KEYCODE_F5;
+        case XK_F6:
+            return PM_KEYCODE_F6;
+        case XK_F7:
+            return PM_KEYCODE_F7;
+        case XK_F8:
+            return PM_KEYCODE_F8;
+        case XK_F9:
+            return PM_KEYCODE_F9;
+        case XK_F10:
+            return PM_KEYCODE_F10;
+        case XK_F11:
+            return PM_KEYCODE_F11;
+        case XK_F12:
+            return PM_KEYCODE_F12;
+        case XK_F13:
+            return PM_KEYCODE_F13;
+        case XK_F14:
+            return PM_KEYCODE_F14;
+        case XK_F15:
+            return PM_KEYCODE_F15;
+        case XK_F16:
+            return PM_KEYCODE_F16;
+        case XK_F17:
+            return PM_KEYCODE_F17;
+        case XK_F18:
+            return PM_KEYCODE_F18;
+        case XK_F19:
+            return PM_KEYCODE_F19;
+        case XK_F20:
+            return PM_KEYCODE_F20;
+        case XK_F21:
+            return PM_KEYCODE_F21;
+        case XK_F22:
+            return PM_KEYCODE_F22;
+        case XK_F23:
+            return PM_KEYCODE_F23;
+        case XK_F24:
+            return PM_KEYCODE_F24;
+        case XK_F25:
+            return PM_KEYCODE_F25;
+        case XK_KP_Divide:
+            return PM_KEYCODE_NUMPAD_DIVIDE;
+        case XK_KP_Multiply:
+            return PM_KEYCODE_NUMPAD_MULTIPLY;
+        case XK_KP_Subtract:
+            return PM_KEYCODE_NUMPAD_SUBTRACT;
+        case XK_KP_Add:
+            return PM_KEYCODE_NUMPAD_ADD;
+        case XK_KP_Insert:
+            return PM_KEYCODE_NUMPAD_0;
+        case XK_KP_End:
+            return PM_KEYCODE_NUMPAD_1;
+        case XK_KP_Down:
+            return PM_KEYCODE_NUMPAD_2;
+        case XK_KP_Page_Down:
+            return PM_KEYCODE_NUMPAD_3;
+        case XK_KP_Left:
+            return PM_KEYCODE_NUMPAD_4;
+        case XK_KP_Right:
+            return PM_KEYCODE_NUMPAD_6;
+        case XK_KP_Home:
+            return PM_KEYCODE_NUMPAD_7;
+        case XK_KP_Up:
+            return PM_KEYCODE_NUMPAD_8;
+        case XK_KP_Page_Up:
+            return PM_KEYCODE_NUMPAD_9;
+        case XK_KP_Delete:
+            return PM_KEYCODE_NUMPAD_DECIMAL;
+        case XK_KP_Equal:
+            return PM_KEYCODE_NUMPAD_EQUAL;
+        case XK_KP_Enter:
+            return PM_KEYCODE_NUMPAD_ENTER;
+        case XK_a:
+            return PM_KEYCODE_A;
+        case XK_b:
+            return PM_KEYCODE_B;
+        case XK_c:
+            return PM_KEYCODE_C;
+        case XK_d:
+            return PM_KEYCODE_D;
+        case XK_e:
+            return PM_KEYCODE_E;
+        case XK_f:
+            return PM_KEYCODE_F;
+        case XK_g:
+            return PM_KEYCODE_G;
+        case XK_h:
+            return PM_KEYCODE_H;
+        case XK_i:
+            return PM_KEYCODE_I;
+        case XK_j:
+            return PM_KEYCODE_J;
+        case XK_k:
+            return PM_KEYCODE_K;
+        case XK_l:
+            return PM_KEYCODE_L;
+        case XK_m:
+            return PM_KEYCODE_M;
+        case XK_n:
+            return PM_KEYCODE_N;
+        case XK_o:
+            return PM_KEYCODE_O;
+        case XK_p:
+            return PM_KEYCODE_P;
+        case XK_q:
+            return PM_KEYCODE_Q;
+        case XK_r:
+            return PM_KEYCODE_R;
+        case XK_s:
+            return PM_KEYCODE_S;
+        case XK_t:
+            return PM_KEYCODE_T;
+        case XK_u:
+            return PM_KEYCODE_U;
+        case XK_v:
+            return PM_KEYCODE_V;
+        case XK_w:
+            return PM_KEYCODE_W;
+        case XK_x:
+            return PM_KEYCODE_X;
+        case XK_y:
+            return PM_KEYCODE_Y;
+        case XK_z:
+            return PM_KEYCODE_Z;
+        case XK_1:
+            return PM_KEYCODE_1;
+        case XK_2:
+            return PM_KEYCODE_2;
+        case XK_3:
+            return PM_KEYCODE_3;
+        case XK_4:
+            return PM_KEYCODE_4;
+        case XK_5:
+            return PM_KEYCODE_5;
+        case XK_6:
+            return PM_KEYCODE_6;
+        case XK_7:
+            return PM_KEYCODE_7;
+        case XK_8:
+            return PM_KEYCODE_8;
+        case XK_9:
+            return PM_KEYCODE_9;
+        case XK_0:
+            return PM_KEYCODE_0;
+        case XK_space:
+            return PM_KEYCODE_SPACE;
+        case XK_minus:
+            return PM_KEYCODE_MINUS;
+        case XK_equal:
+            return PM_KEYCODE_EQUAL;
+        case XK_bracketleft:
+            return PM_KEYCODE_LEFT_SQUARE_BRACKET;
+        case XK_bracketright:
+            return PM_KEYCODE_RIGHT_SQUARE_BRACKET;
+        case XK_backslash:
+            return PM_KEYCODE_BACKSLASH;
+        case XK_semicolon:
+            return PM_KEYCODE_SEMICOLON;
+        case XK_apostrophe:
+            return PM_KEYCODE_APOSTROPHE;
+        case XK_grave:
+            return PM_KEYCODE_ACCENT_GRAVE;
+        case XK_comma:
+            return PM_KEYCODE_COMMA;
+        case XK_period:
+            return PM_KEYCODE_PERIOD;
+        case XK_slash:
+            return PM_KEYCODE_SLASH;
+        default:
+            return PM_KEYCODE_INVALID;
     };
 };
 #endif
 
 pm_mouse_map pm_platform_translate_button(pm_uint32 button) {
     switch (button) {
-        case 1: return PM_MOUSE_BUTTON_LEFT;
-        case 2: return PM_MOUSE_BUTTON_MIDDLE;
-        case 3: return PM_MOUSE_BUTTON_RIGHT;
-        default: return PM_MOUSE_BUTTON_INVALID;
+        case 1:
+            return PM_MOUSE_BUTTON_LEFT;
+        case 2:
+            return PM_MOUSE_BUTTON_MIDDLE;
+        case 3:
+            return PM_MOUSE_BUTTON_RIGHT;
+        default:
+            return PM_MOUSE_BUTTON_INVALID;
     };
 };
 
 pm_platform *pm_platform_create() {
-    pm_platform *platform = (pm_platform*)pm_malloc(sizeof(pm_platform));
+    pm_platform *platform = (pm_platform *) pm_malloc(sizeof(pm_platform));
     if (platform == NULL) printf("[FAIL] pm_platform_create: Could not allocate memory!\n");
     assert(platform != NULL);
     platform->windows = NULL;
@@ -171,7 +308,8 @@ pm_platform *pm_platform_create() {
     XDisplayKeycodes(platform->display, &min, &max);
     pm_int32 width;
     KeySym *key_syms = XGetKeyboardMapping(platform->display, min, max - min + 1, &width);
-    for (pm_int32 i = min; i < max; i++) platform->input.keyboard.keycodes[i] = pm_platform_translate_keysym(&key_syms[(i-min)*width], width);
+    for (pm_int32 i = min; i < max; i++)
+        platform->input.keyboard.keycodes[i] = pm_platform_translate_keysym(&key_syms[(i - min) * width], width);
     XFree(key_syms);
 #else
     platform->input.keyboard.keycodes[0x00B] = PM_KEYCODE_0;
@@ -359,7 +497,8 @@ void pm_platform_poll_events() {
     //HACK: Coords are bound to main window
     if (platform->input.mouse.locked) {
 #if defined(PM_LINUX)
-        pm_platform_mouse_set_position(pm_packed_array_get_ptr(platform->windows, 1)->width/2, pm_packed_array_get_ptr(platform->windows, 1)->height/2);
+        pm_platform_mouse_set_position(pm_packed_array_get_ptr(platform->windows, 1)->width / 2,
+                                       pm_packed_array_get_ptr(platform->windows, 1)->height / 2);
 #else
         pm_vec2u pos = pm_platform_window_get_size(1);
         pm_platform_mouse_set_position(pos.x/2, pos.y/2);
@@ -368,6 +507,7 @@ void pm_platform_poll_events() {
 };
 
 #if defined(PM_LINUX)
+
 void pm_platform_event_handler(XEvent *xevent) {
     pm_platform *platform = pm_engine_get_subsystem(platform);
     pm_uint64 handle = xevent->xany.window;
@@ -409,16 +549,19 @@ void pm_platform_event_handler(XEvent *xevent) {
             break;
         };
         case MotionNotify: {
-            platform->callbacks.pm_platform_mouse_motion_callback(id, xevent->xbutton.x, xevent->xbutton.y, PM_EVENT_MOUSE_MOTION);
+            platform->callbacks.pm_platform_mouse_motion_callback(id, xevent->xbutton.x, xevent->xbutton.y,
+                                                                  PM_EVENT_MOUSE_MOTION);
             break;
         };
         case ConfigureNotify: {
             pm_window *window = pm_packed_array_get_ptr(platform->windows, id);
             if (window->height != xevent->xconfigure.height || window->width != xevent->xconfigure.width) {
-                platform->callbacks.pm_platform_window_size_callback(id, xevent->xconfigure.width, xevent->xconfigure.height, PM_EVENT_WINDOW_SIZE);
+                platform->callbacks.pm_platform_window_size_callback(id, xevent->xconfigure.width,
+                                                                     xevent->xconfigure.height, PM_EVENT_WINDOW_SIZE);
             };
             if (window->x != xevent->xconfigure.x || window->y != xevent->xconfigure.y) {
-                platform->callbacks.pm_platform_window_motion_callback(id, xevent->xconfigure.x, xevent->xconfigure.y, PM_EVENT_WINDOW_MOTION);
+                platform->callbacks.pm_platform_window_motion_callback(id, xevent->xconfigure.x, xevent->xconfigure.y,
+                                                                       PM_EVENT_WINDOW_MOTION);
             };
             break;
         };
@@ -444,7 +587,8 @@ void pm_platform_event_handler(XEvent *xevent) {
             };
             break;
         };
-        default: break;
+        default:
+            break;
     };
 };
 #else
@@ -549,7 +693,8 @@ void pm_platform_update(pm_platform *platform) {
 
 void pm_platform_terminate(pm_platform *platform) {
     if (platform->input.mouse.locked) pm_platform_mouse_lock(false);
-    for (pm_int32 i = 0; i < pm_packed_array_get_count(platform->windows); i++) pm_platform_window_destroy(platform->windows->elements[i].id);
+    for (pm_int32 i = 0; i < pm_packed_array_get_count(platform->windows); i++)
+        pm_platform_window_destroy(platform->windows->elements[i].id);
 #if defined(PM_LINUX)
     //This sends the proper closing xevents
     pm_platform_update(pm_engine_get_subsystem(platform));
@@ -644,8 +789,8 @@ void pm_platform_mouse_get_position(pm_uint32 *x, pm_uint32 *y) {
 pm_vec2 pm_platform_mouse_get_positionv() {
     pm_platform *platform = pm_engine_get_subsystem(platform);
     pm_vec2 posv;
-    posv.x = (pm_float32)platform->input.mouse.position.x;
-    posv.y = (pm_float32)platform->input.mouse.position.y;
+    posv.x = (pm_float32) platform->input.mouse.position.x;
+    posv.y = (pm_float32) platform->input.mouse.position.y;
     return posv;
 };
 
@@ -655,7 +800,8 @@ void pm_platform_mouse_set_position(pm_uint32 x, pm_uint32 y) {
     platform->input.mouse.position.y = y;
 
 #if defined(PM_LINUX)
-    XWarpPointer(platform->display, None, pm_packed_array_get_ptr(platform->windows, 1)->handle, 0, 0, 0, 0, (pm_int32)x, (pm_int32)y);
+    XWarpPointer(platform->display, None, pm_packed_array_get_ptr(platform->windows, 1)->handle, 0, 0, 0, 0,
+                 (pm_int32) x, (pm_int32) y);
     XFlush(platform->display);
 #else
     POINT pos = { (pm_int32)x, (pm_int32)y};
@@ -688,7 +834,8 @@ void pm_platform_mouse_lock(pm_bool lock) {
 #if defined(PM_LINUX)
     if (lock) {
         platform->input.mouse.locked = lock;
-        pm_platform_mouse_get_position(&platform->input.mouse.cached_position.x, &platform->input.mouse.cached_position.y);
+        pm_platform_mouse_get_position(&platform->input.mouse.cached_position.x,
+                                       &platform->input.mouse.cached_position.y);
         XGrabPointer(platform->display, window_to_lock->handle, true,
                      ButtonPressMask | ButtonReleaseMask | PointerMotionMask,
                      GrabModeAsync, GrabModeAsync, window_to_lock->handle, 0, 0
@@ -696,7 +843,8 @@ void pm_platform_mouse_lock(pm_bool lock) {
     } else {
         platform->input.mouse.locked = lock;
         XUngrabPointer(platform->display, 0);
-        pm_platform_mouse_set_position(platform->input.mouse.cached_position.x, platform->input.mouse.cached_position.y);
+        pm_platform_mouse_set_position(platform->input.mouse.cached_position.x,
+                                       platform->input.mouse.cached_position.y);
     };
 #else
     if (lock) {
@@ -727,7 +875,8 @@ void pm_platform_key_callback_default(pm_id id, pm_key_map key, pm_platform_even
             platform->input.keyboard.map[key] = false;
             break;
         };
-        default: break;
+        default:
+            break;
     };
 };
 
@@ -742,7 +891,8 @@ void pm_platform_mouse_button_callback_default(pm_id id, pm_mouse_map button, pm
             platform->input.mouse.map[button] = false;
             break;
         };
-        default: break;
+        default:
+            break;
     };
 };
 
@@ -750,14 +900,14 @@ void pm_platform_mouse_motion_callback_default(pm_id id, pm_int32 x, pm_int32 y,
     pm_platform *platform = pm_engine_get_subsystem(platform);
     if (!platform->input.mouse.locked) {
         platform->input.mouse.moved = true;
-        platform->input.mouse.delta.x = (pm_float32)(x - platform->input.mouse.position.x);
-        platform->input.mouse.delta.y = (pm_float32)(y - platform->input.mouse.position.y);
+        platform->input.mouse.delta.x = (pm_float32) (x - platform->input.mouse.position.x);
+        platform->input.mouse.delta.y = (pm_float32) (y - platform->input.mouse.position.y);
         platform->input.mouse.position.x = x;
         platform->input.mouse.position.y = y;
     } else {
         //REVIEW: For some reason switching to (pm_float32)(x - platform->input.mouse.position.x) breaks stuff?
-        pm_float32 dx = (pm_float32)x - (pm_float32)platform->input.mouse.position.x;
-        pm_float32 dy = (pm_float32)y - (pm_float32)platform->input.mouse.position.y;
+        pm_float32 dx = (pm_float32) x - (pm_float32) platform->input.mouse.position.x;
+        pm_float32 dy = (pm_float32) y - (pm_float32) platform->input.mouse.position.y;
         platform->input.mouse.position.x = x;
         platform->input.mouse.position.y = y;
         platform->input.mouse.delta = pm_vec2_add(platform->input.mouse.delta, pm_vec2_create(dx, dy));
@@ -775,7 +925,8 @@ void pm_platform_mouse_scroll_callback_default(pm_id id, pm_platform_events even
             --platform->input.mouse.wheel_delta;
             break;
         };
-        default: break;
+        default:
+            break;
     };
 };
 
@@ -811,9 +962,10 @@ void pm_platform_window_motion_callback_default(pm_id id, pm_uint32 x, pm_uint32
 pm_id pm_platform_window_create(pm_window_info window_info) {
     pm_platform *platform = pm_engine_get_subsystem(platform);
 
-    pm_window *new_window = (pm_window*)pm_malloc(sizeof(pm_window));
+    pm_window *new_window = (pm_window *) pm_malloc(sizeof(pm_window));
     if (new_window == NULL) {
-        printf("[FAIL] pm_platform_window_create (id: %u): Could not allocate memory for window!\n", platform->windows->next_id);
+        printf("[FAIL] pm_platform_window_create (id: %u): Could not allocate memory for window!\n",
+               platform->windows->next_id);
         return PM_PA_INVALID_ID;
     };
 
@@ -825,27 +977,33 @@ pm_id pm_platform_window_create(pm_window_info window_info) {
     //Defaults
     if (!window_info.x) {
         window_info.x = PM_WINDOW_DEFAULT_X;
-        printf("[WARN] pm_platform_window_create (id: %u): info.x is 0, setting to default (%d)!\n", ret_id, PM_WINDOW_DEFAULT_X);
+        printf("[WARN] pm_platform_window_create (id: %u): info.x is 0, setting to default (%d)!\n", ret_id,
+               PM_WINDOW_DEFAULT_X);
     };
     if (!window_info.y) {
         window_info.y = PM_WINDOW_DEFAULT_Y;
-        printf("[WARN] pm_platform_window_create (id: %u): info.y is 0, setting to default (%d)!\n", ret_id, PM_WINDOW_DEFAULT_Y);
+        printf("[WARN] pm_platform_window_create (id: %u): info.y is 0, setting to default (%d)!\n", ret_id,
+               PM_WINDOW_DEFAULT_Y);
     }
     if (!window_info.width) {
         window_info.width = PM_WINDOW_DEFAULT_WIDTH;
-        printf("[WARN] pm_platform_window_create (id: %u): info.width is 0, setting to default (%d)!\n", ret_id, PM_WINDOW_DEFAULT_WIDTH);
+        printf("[WARN] pm_platform_window_create (id: %u): info.width is 0, setting to default (%d)!\n", ret_id,
+               PM_WINDOW_DEFAULT_WIDTH);
     }
     if (!window_info.height) {
         window_info.height = PM_WINDOW_DEFAULT_HEIGHT;
-        printf("[WARN] pm_platform_window_create (id: %u): info.height is 0, setting to default (%d)!\n", ret_id, PM_WINDOW_DEFAULT_HEIGHT);
+        printf("[WARN] pm_platform_window_create (id: %u): info.height is 0, setting to default (%d)!\n", ret_id,
+               PM_WINDOW_DEFAULT_HEIGHT);
     }
     if (!strlen(window_info.name)) {
         snprintf(window_info.name, PM_MAX_NAME_LENGTH, "%s%d", PM_WINDOW_DEFAULT_NAME, ret_id);
-        printf("[WARN] pm_platform_window_create (id: %u): info.name is empty, setting default name (%s)!\n", ret_id, window_info.name);
+        printf("[WARN] pm_platform_window_create (id: %u): info.name is empty, setting default name (%s)!\n", ret_id,
+               window_info.name);
     };
     if (!window_info.parent) {
         window_info.parent = PM_WINDOW_DEFAULT_PARENT;
-        printf("[WARN] pm_platform_window_create (id: %u): info.parent is 0, setting default parent (%lu)!\n", ret_id, PM_WINDOW_DEFAULT_PARENT);
+        printf("[WARN] pm_platform_window_create (id: %u): info.parent is 0, setting default parent (%lu)!\n", ret_id,
+               PM_WINDOW_DEFAULT_PARENT);
     };
     if (!window_info.is_fullscreen) {
         window_info.is_fullscreen = false;
@@ -856,17 +1014,21 @@ pm_id pm_platform_window_create(pm_window_info window_info) {
     XSetWindowAttributes window_attributes;
     pm_int32 attribs[] = {GLX_RGBA, GLX_DEPTH_SIZE, 24, GLX_DOUBLEBUFFER, None};
     new_window->visual_info = glXChooseVisual(platform->display, 0, attribs);
-    new_window->colormap = XCreateColormap(platform->display, window_info.parent, new_window->visual_info->visual, AllocNone);
+    new_window->colormap = XCreateColormap(platform->display, window_info.parent, new_window->visual_info->visual,
+                                           AllocNone);
     window_attributes.colormap = new_window->colormap;
-    window_attributes.event_mask = ExposureMask | KeyPressMask | KeyReleaseMask |ButtonPressMask | ButtonReleaseMask | PointerMotionMask | FocusChangeMask | StructureNotifyMask | EnterWindowMask | LeaveWindowMask;
-    pm_uint64 window = (pm_uint64)XCreateWindow(platform->display, window_info.parent,
-                                                (pm_int32)window_info.x, (pm_int32)window_info.y,
-                                                window_info.width, window_info.height, 0,
-                                                new_window->visual_info->depth, InputOutput,
-                                                new_window->visual_info->visual, CWColormap | CWEventMask,
-                                                &window_attributes
+    window_attributes.event_mask =
+            ExposureMask | KeyPressMask | KeyReleaseMask | ButtonPressMask | ButtonReleaseMask | PointerMotionMask |
+            FocusChangeMask | StructureNotifyMask | EnterWindowMask | LeaveWindowMask;
+    pm_uint64 window = (pm_uint64) XCreateWindow(platform->display, window_info.parent,
+                                                 (pm_int32) window_info.x, (pm_int32) window_info.y,
+                                                 window_info.width, window_info.height, 0,
+                                                 new_window->visual_info->depth, InputOutput,
+                                                 new_window->visual_info->visual, CWColormap | CWEventMask,
+                                                 &window_attributes
     );
-    if (window == BadAlloc || window == BadColor || window == BadCursor || window == BadMatch || window == BadPixmap || window == BadValue || window == BadWindow) {
+    if (window == BadAlloc || window == BadColor || window == BadCursor || window == BadMatch || window == BadPixmap ||
+        window == BadValue || window == BadWindow) {
         printf("[FAIL] pm_platform_window_create (id: %u): Could not create window!\n", ret_id);
         pm_packed_array_erase(platform->windows, ret_id);
         return PM_PA_INVALID_ID;
@@ -874,9 +1036,9 @@ pm_id pm_platform_window_create(pm_window_info window_info) {
     new_window->handle = window;
 
     Atom wm_delete = XInternAtom(platform->display, "WM_DELETE_WINDOW", true);
-    XSetWMProtocols(platform->display, (Window)new_window->handle, &wm_delete, 1);
-    XStoreName(platform->display, (Window)new_window->handle, window_info.name);
-    XMapWindow(platform->display, (Window)new_window->handle);
+    XSetWMProtocols(platform->display, (Window) new_window->handle, &wm_delete, 1);
+    XStoreName(platform->display, (Window) new_window->handle, window_info.name);
+    XMapWindow(platform->display, (Window) new_window->handle);
 
 #else
     DWORD dwExStyle = WS_EX_LEFT; // 0
@@ -951,7 +1113,8 @@ pm_id pm_platform_window_create(pm_window_info window_info) {
 
     //Have to do this here unfortunately
     if (pm_packed_array_get_count(platform->windows) <= 1)
-        if (!gladLoadGL()) printf("[FAIL] pm_platform_window_create (id: %u): Could not load OpenGL functions!\n", new_window->id);
+        if (!gladLoadGL())
+            printf("[FAIL] pm_platform_window_create (id: %u): Could not load OpenGL functions!\n", new_window->id);
 
     amgl_vsync(new_window->id, pm_engine_get_instance()->vsync_enabled);
 
@@ -964,7 +1127,7 @@ pm_id pm_platform_window_create(pm_window_info window_info) {
 };
 
 void pm_platform_window_resize(pm_id id, pm_uint32 width, pm_uint32 height) {
-    pm_platform *platform  = pm_engine_get_subsystem(platform);
+    pm_platform *platform = pm_engine_get_subsystem(platform);
     pm_window *window = pm_packed_array_get_ptr(platform->windows, id);
     if (!window) {
         printf("[FAIL] pm_platform_window_resize (id: %u): Window id is invalid!\n", id);
@@ -1001,7 +1164,7 @@ void pm_platform_window_move(pm_id id, pm_uint32 x, pm_uint32 y) {
     window->cache.y = window->y;
 
 #if defined(PM_LINUX)
-    XMoveWindow(platform->display, window->handle, (pm_int32)x, (pm_int32)y);
+    XMoveWindow(platform->display, window->handle, (pm_int32) x, (pm_int32) y);
 #else
     RECT rect = {
             .left = (long)x,
@@ -1053,14 +1216,16 @@ void pm_platform_window_fullscreen(pm_id id, pm_bool state) {
     xevent.xclient.window = window->handle;
     xevent.xclient.message_type = wm_state;
     xevent.xclient.format = 32;
-    xevent.xclient.data.l[0] = state ? 1:0;
-    xevent.xclient.data.l[1] = (long)wm_fs;
+    xevent.xclient.data.l[0] = state ? 1 : 0;
+    xevent.xclient.data.l[1] = (long) wm_fs;
     xevent.xclient.data.l[3] = 0l;
-    XSendEvent(platform->display, PM_WINDOW_DEFAULT_PARENT, false, SubstructureRedirectMask | SubstructureNotifyMask, &xevent);
+    XSendEvent(platform->display, PM_WINDOW_DEFAULT_PARENT, false, SubstructureRedirectMask | SubstructureNotifyMask,
+               &xevent);
     XFlush(platform->display);
     XWindowAttributes window_attribs = {0};
     XGetWindowAttributes(platform->display, window->handle, &window_attribs);
-    printf("Fullscreen toggle\n Pos: %d %d\n Size: %d %d\nFullscreen toggle end\n\n", window_attribs.x, window_attribs.y, window_attribs.width, window_attribs.height);
+    printf("Fullscreen toggle\n Pos: %d %d\n Size: %d %d\nFullscreen toggle end\n\n", window_attribs.x,
+           window_attribs.y, window_attribs.width, window_attribs.height);
     memcpy(&window->cache, &temp_info, sizeof(pm_window_info));
 #else
     DWORD dw_style = GetWindowLong((HWND)window->handle, GWL_STYLE);
@@ -1119,7 +1284,7 @@ void pm_platform_timer_create() {
 #if defined(PM_LINUX)
     struct timespec ts;
     clock_gettime(CLOCK_MONOTONIC, &ts);
-    platform->time.offset = (pm_uint64)ts.tv_sec * (pm_uint64)1000000000 + (pm_uint64)ts.tv_nsec;
+    platform->time.offset = (pm_uint64) ts.tv_sec * (pm_uint64) 1000000000 + (pm_uint64) ts.tv_nsec;
 
     platform->time.frequency = 1000000000;
 #else
@@ -1130,7 +1295,7 @@ void pm_platform_timer_create() {
 
 void pm_platform_timer_sleep(pm_float32 ms) {
 #if defined(PM_LINUX)
-    usleep((__useconds_t)(ms*1000.0f));
+    usleep((__useconds_t) (ms * 1000.0f));
 #else
     timeBeginPeriod(1);
     Sleep((uint64_t)ms);
@@ -1142,7 +1307,7 @@ pm_uint64 pm_platform_timer_value() {
 #if defined(PM_LINUX)
     struct timespec ts;
     clock_gettime(CLOCK_MONOTONIC, &ts);
-    return (pm_uint64)ts.tv_sec * (pm_uint64)1000000000 + (pm_uint64)ts.tv_nsec;
+    return (pm_uint64) ts.tv_sec * (pm_uint64) 1000000000 + (pm_uint64) ts.tv_nsec;
 #else
     pm_uint64 value;
     QueryPerformanceCounter((LARGE_INTEGER*)&value);

@@ -6,10 +6,12 @@
 #include <GL/glext.h>
 #else
 #define PM_LINUX
+
 #include <X11/Xatom.h>
 #include <X11/Xlib.h>
 #include <GL/glx.h>
 #include <sys/stat.h>
+
 #endif
 
 typedef signed char pm_int8;
@@ -22,7 +24,9 @@ typedef signed long long int pm_int64;
 typedef unsigned long long int pm_uint64;
 typedef float pm_float32;
 typedef double pm_float64;
-typedef enum { false, true } pm_bool;
+typedef enum {
+    false, true
+} pm_bool;
 typedef pm_uint32 pm_id;
 
 #define PM_MAX_NAME_LENGTH 64
@@ -232,10 +236,15 @@ typedef struct pm_window {
 
 typedef struct pm_platform_callbacks {
     void (*pm_platform_key_callback)(pm_id, pm_key_map, pm_platform_events);
+
     void (*pm_platform_mouse_button_callback)(pm_id, pm_mouse_map, pm_platform_events);
+
     void (*pm_platform_mouse_motion_callback)(pm_id, pm_int32, pm_int32, pm_platform_events);
+
     void (*pm_platform_mouse_scroll_callback)(pm_id, pm_platform_events);
+
     void (*pm_platform_window_size_callback)(pm_id, pm_uint32, pm_uint32, pm_platform_events);
+
     void (*pm_platform_window_motion_callback)(pm_id, pm_uint32, pm_uint32, pm_platform_events);
 } pm_platform_callbacks;
 
@@ -273,7 +282,8 @@ typedef struct pm_platform {
 #if defined(PM_LINUX)
     Display *display;
 #endif
-    pm_packed_array(pm_window) windows;
+    pm_packed_array(pm_window)
+    windows;
     pm_platform_input input;
     pm_platform_time time;
     pm_platform_callbacks callbacks;
@@ -282,50 +292,82 @@ typedef struct pm_platform {
 
 //Platform
 #if defined(PM_LINUX)
+
 pm_key_map pm_platform_translate_keysym(const KeySym *key_syms, pm_int32 width);
+
 #endif
+
 pm_mouse_map pm_platform_translate_button(pm_uint32 button);
+
 pm_platform *pm_platform_create();
+
 void pm_platform_poll_events();
+
 #if defined(PM_WINDOWS)
 LRESULT CALLBACK pm_platform_event_handler(HWND handle, pm_uint32 event, WPARAM wparam, LPARAM lparam);
 #else
+
 void pm_platform_event_handler(XEvent *xevent);
+
 #endif
+
 void pm_platform_update(pm_platform *platform);
+
 void pm_platform_terminate(pm_platform *platform);
 
 //Keyboard input
 void pm_platform_key_press(pm_key_map key);
+
 void pm_platform_key_release(pm_key_map key);
+
 pm_bool pm_platform_key_pressed(pm_key_map key);
+
 pm_bool pm_platform_key_down(pm_key_map key);
+
 pm_bool pm_platform_key_released(pm_key_map key);
+
 pm_bool pm_platform_key_up(pm_key_map key);
 
 //Mouse input
 void pm_platform_mouse_button_press(pm_mouse_map button);
+
 void pm_platform_mouse_button_release(pm_mouse_map button);
+
 pm_bool pm_platform_mouse_button_pressed(pm_mouse_map button);
+
 pm_bool pm_platform_mouse_button_down(pm_mouse_map button);
+
 pm_bool pm_platform_mouse_button_released(pm_mouse_map button);
+
 pm_bool pm_platform_mouse_button_up(pm_mouse_map button);
+
 void pm_platform_mouse_get_position(pm_uint32 *x, pm_uint32 *y);
+
 pm_vec2i pm_platform_mouse_get_positionv();
+
 void pm_platform_mouse_set_position(pm_uint32 x, pm_uint32 y);
+
 pm_vec2i pm_platform_mouse_get_delta();
+
 pm_int32 pm_platform_mouse_get_wheel_delta();
+
 pm_bool pm_platform_mouse_moved();
+
 //TODO: Corrently limited to main window, need to add some kind of currently focused window cache
 void pm_platform_mouse_lock(pm_bool lock);
 
 
 //Platform default callbacks
 void pm_platform_key_callback_default(pm_id id, pm_key_map key, pm_platform_events event);
+
 void pm_platform_mouse_button_callback_default(pm_id id, pm_mouse_map button, pm_platform_events event);
+
 void pm_platform_mouse_motion_callback_default(pm_id id, pm_int32 x, pm_int32 y, pm_platform_events event);
+
 void pm_platform_mouse_scroll_callback_default(pm_id id, pm_platform_events event);
+
 void pm_platform_window_size_callback_default(pm_id id, pm_uint32 width, pm_uint32 height, pm_platform_events event);
+
 void pm_platform_window_motion_callback_default(pm_id id, pm_uint32 x, pm_uint32 y, pm_platform_events event);
 
 #define pm_platform_set_key_callback(platform, callback) platform->callbacks.pm_platform_key_callback = callback
@@ -337,16 +379,24 @@ void pm_platform_window_motion_callback_default(pm_id id, pm_uint32 x, pm_uint32
 
 //Windows
 pm_id pm_platform_window_create(pm_window_info window_info);
+
 void pm_platform_window_resize(pm_id id, pm_uint32 width, pm_uint32 height);
+
 void pm_platform_window_move(pm_id id, pm_uint32 x, pm_uint32 y);
+
 void pm_platform_window_fullscreen(pm_id id, pm_bool state);
+
 pm_vec2u pm_platform_window_get_size(pm_id id);
+
 void pm_platform_window_destroy(pm_id id);
 
 //Time
 void pm_platform_timer_create();
+
 void pm_platform_timer_sleep(pm_float32 ms);
+
 pm_uint64 pm_platform_timer_value();
+
 pm_uint64 pm_platform_elapsed_time();
 
 //----------------------------------------------------------------------------//
